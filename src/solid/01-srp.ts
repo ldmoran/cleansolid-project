@@ -23,21 +23,23 @@ class UserService {
 
 }
 
-class UserBloc {
+class Mailer {
 
-    notifyUser() {
+    sendEmail() {
         console.log('Enviando correo a los usuarios');
     }
 
 }
 
+class UserBloc {}
+
 const userService = new UserService();
-const userBloc = new UserBloc();
+const mailer = new Mailer();
 const subscriptionBloc = new SubscriptionBloc();
 
 userService.loadUser(10);
 userService.saveUser({ id: 10, name: 'Fernando' });
 
-userBloc.notifyUser();
+mailer.sendEmail();
 
 subscriptionBloc.onAddSubscription(1234);
