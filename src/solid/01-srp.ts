@@ -11,8 +11,7 @@ class SubscriptionBloc {
 
 }
 
-// Esta clase ahora tiene una responsabilidad menos
-class UserBloc {
+class UserService {
 
     loadUser(id: number) {
         console.log('Cargando usuario con id:', id);
@@ -22,17 +21,23 @@ class UserBloc {
         console.log('Guardando en base de datos:', user);
     }
 
+}
+
+class UserBloc {
+
     notifyUser() {
         console.log('Enviando correo a los usuarios');
     }
 
 }
 
+const userService = new UserService();
 const userBloc = new UserBloc();
 const subscriptionBloc = new SubscriptionBloc();
 
-userBloc.loadUser(10);
-userBloc.saveUser({ id: 10, name: 'Fernando' });
+userService.loadUser(10);
+userService.saveUser({ id: 10, name: 'Fernando' });
+
 userBloc.notifyUser();
 
 subscriptionBloc.onAddSubscription(1234);
